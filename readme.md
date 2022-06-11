@@ -12,7 +12,7 @@ The (necessarily) complex GUIs of these programs create visual noise. In additio
 
 ## Solution
 
-TierList is a minimal application with three pre-defined tiers. Images (`png`, `jpeg`, `gif`) can be dragged onto the page individually or in groups. Images will be aligned neatly at the base of the tier list. Each images will be automatically adjusted to a sensible, constant size, which can be adjusted afterwards as needed.
+TierList is a minimal application with three pre-defined tiers. Images (`png`, `jpeg`, `gif`) can be dragged onto the page individually or in groups. Images will be aligned neatly at the base of the tier list. Each image will be automatically adjusted to a sensible, constant size, which can be adjusted afterwards as needed.
 
 ## Usage
 
