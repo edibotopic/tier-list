@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>TierList: Add Images</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body id="body">
+    <style>
+      :root,
+      :root.gruv {
+        --bg-color: #282828;
+        --text-color: #edddaa;
+        --t1-color: #98971a;
+        --t2-color: #69b4b2;
+        --t3-color: #e47f2d;
+        --t4-color: #d63a3e;
+        --btn-color-light: white;
+        --btn-color-dark: black;
+        --btn-color-gruv: #d63a3e;
+        --btn-color-min: gray;
+        --tab-color: #e47f2d;
+        --footer-color: #e47f2d;
+        --footer-color-hover: darkgray;
+      }
+      :root.light {
+        --bg-color: #fff;
+        --text-color: darkgray;
+        --t1-color: green;
+        --t2-color: orange;
+        --t3-color: gray;
+        --t4-color: red;
+        --btn-color-light: white;
+        --btn-color-dark: black;
+        --btn-color-gruv: #d63a3e;
+        --btn-color-min: gray;
+        --tab-color: lightblue;
+        --footer-color: purple;
+        --footer-color-hover: darkgray;
+      }
+      :root.dark {
+        --bg-color: #121212;
+        --text-color: white;
+        --t1-color: green;
+        --t2-color: orange;
+        --t3-color: gray;
+        --t4-color: red;
+        --btn-color-light: white;
+        --btn-color-dark: black;
+        --btn-color-gruv: #d63a3e;
+        --btn-color-min: gray;
+        --tab-color: lightblue;
+        --footer-color: lightblue;
+        --footer-color-hover: darkgray;
+      }
+      :root.minimal {
+        --bg-color: #121212;
+        --text-color: #ffffff;
+        --t1-color: lightgray;
+        --t2-color: lightgray;
+        --t3-color: lightgray;
+        --t4-color: lightgray;
+        --btn-color-light: white;
+        --btn-color-dark: black;
+        --btn-color-gruv: #d63a3e;
+        --btn-color-min: gray;
+        --tab-color: #e47f2d;
+        --footer-color: #e47f2d;
+        --footer-color-hover: darkgray;
+      }
+      .toggle-container {
+        float: right;
+        padding-left: 20px;
+        padding-bottom: 1000px;
+      }
+      .theme-btn {
+        width: 3em;
+        height: 3em;
+        padding: 0.5em;
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+      }
+
+      #b1 {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        background-color: var(--btn-color-light);
+        border-style: solid;
+        border-color: black;
+        border-radius: 50%;
+      }
+      #b2 {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        background-color: var(--btn-color-dark);
+        border-style: solid;
+        border-color: white;
+        border-radius: 50%;
+      }
+      #b3 {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        background-color: var(--btn-color-gruv);
+        border-style: solid;
+        border-color: #d63a3e;
+        border-radius: 50%;
+      }
+      #b4 {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        background-color: var(--btn-color-min);
+        border-style: solid;
+        border-color: gray;
+        border-radius: 50%;
+      }
+      html {
+        background-color: var(--bg-color);
+        margin: 20px;
+        transition: all 400ms;
+      }
+      body {
+      }
+      #header {
+        color: var(--text-color);
+        /* position: absolute; */
+      }
+      .label {
+        user-select: none;
+        font-size: 2.3vw;
+        font-weight: bold;
+        text-align: center;
+        margin: 0;
+        padding-top: 6.6vw;
+      }
+      textarea {
+        background-color: transparent;
+        resize: none;
+        outline: none;
+        border: none;
+        width: 10vw;
+        height: 10vw;
+      }
+      #t1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--t1-color);
+        color: var(--text-color);
+        width: 10vw;
+        height: 10vw;
+        border-radius: 15%;
+      }
+      #t2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--t2-color);
+        color: var(--text-color);
+        width: 10vw;
+        height: 10vw;
+        border-radius: 15%;
+        text-align: center;
+      }
+      #t3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--t3-color);
+        color: var(--text-color);
+        width: 10vw;
+        height: 10vw;
+        border-radius: 15%;
+        text-align: center;
+      }
+      #t4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--t4-color);
+        color: var(--text-color);
+        width: 10vw;
+        height: 10vw;
+        border-radius: 15%;
+        text-align: center;
+      }
+      #resize {
+        width: 12vw;
+        height: 12vw;
+        resize: both;
+        overflow: hidden;
+        float: left;
+        padding-right: 1.2vw;
+        padding-down: 1.2vw;
+      }
+      .tab {
+        border-bottom: 1px solid black;
+        height: 1vw;
+        text-align: right;
+        padding: 3px 10px;
+        background-color: var(--tab-color); /* make this dynamic */
+        cursor: move;
+      }
+      /* .close { */
+      /*   cursor: pointer; */
+      /*   display: inline-block; */
+      /*   font-size: 14px; */
+      /*     padding-top: 0px; */
+      /* } */
+      img {
+        /* img.src = url */
+        width: 100%;
+        height: 100%;
+      }
+      #footer {
+        font-size: 2vh;
+      }
+      a:link {
+        color: var(--footer-color);
+        text-decoration: none;
+        transition: all 400ms;
+      }
+
+      a:hover {
+        color: var(--footer-color-hover);
+        text-decoration: underline;
+      }
+
+      a:visited {
+        color: darkgray;
+        text-decoration: none;
+        transition: all 400ms;
+      }
+
+      a:active {
+        color: darkgray;
+        text-decoration: none;
+        transition: all 400ms;
+      }
+    </style>
+    <!-- <div id="header"> -->
+    <!--   <h1>Tier List: drag and position your images</h1> -->
+    <!-- </div> -->
+    <!---->
+    <!-- <br /> -->
+
+    <div id="t1">
+      <textarea class="label" spellcheck="false">GREAT</textarea>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <div id="t2"><textarea class="label">GOOD</textarea></div>
+    <br />
+    <hr />
+    <br />
+    <!-- <div id="t3"><textarea class="label">FAIR</textarea></div> -->
+    <!-- <br /> -->
+    <!-- <hr /> -->
+    <!-- <br /> -->
+    <div id="t4"><textarea class="label">BAD</textarea></div>
+    <br />
+    <hr />
+    <br />
+
+    <div class="toggle-container">
+      <button
+        class="theme-btn light"
+        onclick="setTheme('light')"
+        title="Light Theme"
+      >
+        <div id="b1"></div>
+      </button>
+      <button
+        class="theme-btn dark"
+        onclick="setTheme('dark')"
+        title="Dark Theme"
+      >
+        <div id="b2"></div>
+      </button>
+      <button
+        class="theme-btn gruv"
+        onclick="setTheme('gruv')"
+        title="Default Theme"
+      >
+        <div id="b3"></div>
+      </button>
+      <button
+        class="theme-btn minimal"
+        onclick="setTheme('minimal')"
+        title="Minimal Theme"
+      >
+        <div id="b4"></div>
+      </button>
+      <br /><br />
+      <small id="footer"
+        ><a style="float: right" href="https://github.com/edibotopic/tier-list"
+          >edibotopic | 2022</a
+        ></small
+      >
+    </div>
+
+    <script>
+      const setTheme = (theme) => (document.documentElement.className = theme)
+
+      let body = document.getElementById('body')
+      let moveable = 0
+      let canMove = () => {
+        // console.log('can move')
+        moveable = 1
+      }
+      let cannotMove = () => {
+        // console.log('cannot move')
+        moveable = 0
+      }
+      // let rmvImg = (img) => {
+      //   this.img = img
+      //   img.remove()
+      // }
+      window.addEventListener('dragover', (e) => e.preventDefault())
+      window.addEventListener('drop', (e) => {
+        e.preventDefault()
+        ;[...e.dataTransfer.items].forEach((item) => {
+          if (
+            item.type === 'image/png' ||
+            item.type === 'image/jpeg' ||
+            item.type === 'image/gif' ||
+            item.type === 'image/webp' ||
+            item.type === 'image/svg+xml'
+          ) {
+            const file = item.getAsFile()
+            const url = URL.createObjectURL(file)
+            const resize = document.createElement('div')
+            const tab = document.createElement('div')
+            // const close = document.createElement('div')
+            // close.innerHTML = '<strong>&#10006</strong>'
+            const img = document.createElement('img')
+            img.src = url
+            img.onload = () => {
+              this.ratio = img.width / img.height
+            }
+
+            body.appendChild(resize)
+            resize.setAttribute('id', 'resize')
+            resize.appendChild(tab)
+            tab.setAttribute('class', 'tab')
+            tab.setAttribute('onmouseenter', 'canMove()')
+            tab.setAttribute('onmouseleave', 'cannotMove()')
+            // tab.appendChild(close)
+            // close.setAttribute('class', 'close')
+            // close.setAttribute('id', 'close')
+            // close.setAttribute('onclick', 'rmvImg(this)') BUG: only removes button!!!
+            resize.appendChild(img)
+            resize.setAttribute('draggable', 'true')
+
+            resize.onmousedown = (e) => {
+              if (moveable === 1) {
+                console.log(moveable)
+                let shiftX = e.clientX - resize.getBoundingClientRect().left
+                let shiftY = e.clientY - resize.getBoundingClientRect().top
+
+                resize.style.position = 'absolute'
+                resize.style.zIndex = 1000
+
+                function moveAt(pageX, pageY) {
+                  resize.style.left = pageX - shiftX + 'px'
+                  resize.style.top = pageY - shiftY + 'px'
+                }
+
+                moveAt(e.pageX, e.pageY)
+
+                let onMouseMove = (e) => {
+                  moveAt(e.pageX, e.pageY)
+                }
+
+                document.addEventListener('mousemove', onMouseMove)
+
+                resize.onmouseup = () => {
+                  document.removeEventListener('mousemove', onMouseMove)
+                  resize.onmouseup = null
+                }
+
+                resize.ondragstart = function () {
+                  return false
+                }
+              } else if (moveable === 0) {
+                console.log('use the tab')
+                console.log(moveable)
+              }
+            }
+          }
+        })
+      })
+    </script>
+  </body>
+</html>
