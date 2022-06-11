@@ -22,6 +22,7 @@
         --tab-color: #e47f2d;
         --footer-color: #e47f2d;
         --footer-color-hover: darkgray;
+        --caret: white;
       }
       :root.light {
         --bg-color: #fff;
@@ -37,6 +38,7 @@
         --tab-color: lightblue;
         --footer-color: purple;
         --footer-color-hover: darkgray;
+        --caret: white;
       }
       :root.dark {
         --bg-color: #121212;
@@ -52,6 +54,7 @@
         --tab-color: lightblue;
         --footer-color: lightblue;
         --footer-color-hover: darkgray;
+        --caret: white;
       }
       :root.minimal {
         --bg-color: #121212;
@@ -67,6 +70,7 @@
         --tab-color: #e47f2d;
         --footer-color: #e47f2d;
         --footer-color-hover: darkgray;
+        --caret: black;
       }
       .toggle-container {
         float: right;
@@ -140,6 +144,8 @@
       }
       textarea {
         background-color: transparent;
+        caret-color: var(--caret);
+        /* caret-shape: block; */
         resize: none;
         outline: none;
         border: none;
