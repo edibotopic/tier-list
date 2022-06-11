@@ -33,6 +33,7 @@ TO COMPLETE
 - There is not much flexibility for resizing the page, but on a regular-large screen there should be plenty real estate for adding/resizing images
 - There is currently no method to remove images that have been added (this is planned)
 - Resizing the window after images have been arranged can mess up the arrangement (current fix: don't resize the window after you have started 😆)
+- Long/wordy/comical tier names will likely not wrap well (current fix: keep 'em short)
 
 ## Roadmap
 
