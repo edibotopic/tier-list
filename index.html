@@ -14,7 +14,6 @@
         --t1-color: #98971a;
         --t2-color: #69b4b2;
         --t3-color: #e47f2d;
-        --t4-color: #d63a3e;
         --btn-color-light: white;
         --btn-color-dark: black;
         --btn-color-gruv: #d63a3e;
@@ -30,7 +29,6 @@
         --t1-color: green;
         --t2-color: orange;
         --t3-color: gray;
-        --t4-color: red;
         --btn-color-light: white;
         --btn-color-dark: black;
         --btn-color-gruv: #d63a3e;
@@ -46,7 +44,6 @@
         --t1-color: green;
         --t2-color: orange;
         --t3-color: gray;
-        --t4-color: red;
         --btn-color-light: white;
         --btn-color-dark: black;
         --btn-color-gruv: #d63a3e;
@@ -62,7 +59,6 @@
         --t1-color: lightgray;
         --t2-color: lightgray;
         --t3-color: lightgray;
-        --t4-color: lightgray;
         --btn-color-light: white;
         --btn-color-dark: black;
         --btn-color-gruv: #d63a3e;
@@ -184,11 +180,11 @@
         border-radius: 15%;
         text-align: center;
       }
-      #t4 {
+      #tn {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: var(--t4-color);
+        background-color: var(--tn-color);
         color: var(--text-color);
         width: 10vw;
         height: 10vw;
@@ -254,25 +250,24 @@
     <!-- </div> -->
     <!---->
     <!-- <br /> -->
-
-    <div id="t1">
-      <textarea class="label" spellcheck="false">GREAT</textarea>
+    <div id="tiers">
+      <div id="t1">
+        <textarea class="label" spellcheck="false">GREAT</textarea>
+      </div>
+      <br />
+      <hr />
+      <br />
+      <div id="t2"><textarea class="label">GOOD</textarea></div>
+      <br />
+      <hr />
+      <br />
+      <div id="t3"><textarea class="label">BAD</textarea></div>
+      <br />
+      <hr />
+      <br />
     </div>
-    <br />
-    <hr />
-    <br />
-    <div id="t2"><textarea class="label">GOOD</textarea></div>
-    <br />
-    <hr />
-    <br />
-    <!-- <div id="t3"><textarea class="label">FAIR</textarea></div> -->
-    <!-- <br /> -->
-    <!-- <hr /> -->
-    <!-- <br /> -->
-    <div id="t4"><textarea class="label">BAD</textarea></div>
-    <br />
-    <hr />
-    <br />
+    <button style="float:left;" type="button" onclick="newTier()">+</button>
+        <br><br>
 
     <div class="toggle-container">
       <button
@@ -328,6 +323,29 @@
       //   this.img = img
       //   img.remove()
       // }
+
+      function newTier() {
+          // TODO: colour s should be filtered for minimal themes
+        const randomColor = '#' + ((Math.random() * 0xffffff) << 0).toString(16)
+        const box = document.createElement('div')
+        box.setAttribute('id', 'tn')
+        box.style['background-color'] = randomColor
+        console.log(randomColor)
+
+        const tx = document.createElement('textarea')
+        tx.setAttribute('class', 'label')
+        const brk1 = document.createElement('br')
+        const line = document.createElement('hr')
+        const brk2 = document.createElement('br')
+        tx.textContent = '?'
+        const tiers = document.getElementById('tiers')
+        tiers.appendChild(box)
+        box.appendChild(tx)
+        tiers.appendChild(brk1)
+        tiers.appendChild(line)
+        tiers.appendChild(brk2)
+      }
+
       window.addEventListener('dragover', (e) => e.preventDefault())
       window.addEventListener('drop', (e) => {
         e.preventDefault()
