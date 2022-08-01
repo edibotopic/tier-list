@@ -22,6 +22,8 @@ Any image can be dragged by its tab bar or resized by dragging at a corner. Grou
 
 Three default themes are provided (light, dark, gruv, minimal). To change theme simply select one of the circles at the bottom right of the screen.
 
+*Note: currently, adding new tiers to the initial three creates coloured boxes that don't work well with the dark/minimal themes.*
+
 ### Use-case (OBS)
 
 TO COMPLETE
@@ -29,7 +31,8 @@ TO COMPLETE
 ### Limitations
 
 - App has not been designed with mobile in mind, as I don't foresee that being a common workflow
-- Only three tiers are provided by default, but I hope to add the option to add/remove tiers in future
+~~- Only three tiers are provided by default, but I hope to add the option to add/remove tiers in future~~
+- There is no option to remove existing tiers
 - There is not much flexibility for resizing the page, but on a regular-large screen there should be plenty real estate for adding/resizing images
 - There is currently no method to remove images that have been added (this is planned)
 - Resizing the window after images have been arranged can mess up the arrangement (current fix: don't resize the window after you have started 😆)
@@ -37,8 +40,10 @@ TO COMPLETE
 
 ## Roadmap
 
-- [ ] Option to add/remove tiers
+- [x] Option to add tiers
+- [ ] Option to remove tiers
+- [ ] Dynamically change tab colour depending on tier
 - [ ] Support for other media (videos, audio)
 - [ ] More flexibility for window resizing
 - [ ] Collaborative editing (unlikely!)
-- [ ] Guidance on saving tier lists (for now: screenshot)
+- [ ] Guidance on saving tier lists (for now: screenshot; consider localstorage?)
