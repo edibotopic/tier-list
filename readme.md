@@ -2,9 +2,11 @@
 
 This is a small web app for making **tier lists**, with support for all major image formats.
 
+I especially like that it allows Tier Lists to made with `.gifs`.
+
 ## Problem
 
-Content creators often make ranking videos where they divide items (e.g., games, software, artists) into tiers (e.g., great, good, bad).
+Content creators often make ranking videos where they divide items (e.g., games, software, artists) into tiers (e.g., S-tier, D-tier).
 
 When making these videos software designed for digital drawing and image processing (e.g., GIMP, Krita) is often used. While these are excellent pieces of software, they are needlessly powerful given the simplicity of the task.
 
@@ -19,7 +21,7 @@ TierList is a minimal application with standard pre-defined tiers (S-F). Images 
 
 ## Usage
 
-Any image can be moved by clicking and dragging its tab bar or resized by dragging at a corner. Groups of images will be arranged left-right at the bottom of the page. Clicking on a tier box will allow you to change the default text (e.g., 'good' -> 'fair').
+Any image can be moved by clicking and dragging its tab bar or resized by dragging at a corner. Groups of images will be arranged left-right at the bottom of the page. Clicking on a tier box will allow you to change the default text (e.g., 'S' -> 'Great').
 
 Three default themes are provided (gruvbox (default), light, minimal). To change theme simply select one of the circles at the bottom right of the screen.
 
