@@ -2,7 +2,7 @@
 
 This is a small web app for making **tier lists**, with support for all major image formats.
 
-I especially like that it allows Tier Lists to made with `.gifs`.
+I especially like that it allows Tier Lists to be made with `.gifs`.
 
 ## Problem
 
