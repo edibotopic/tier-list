@@ -15,12 +15,13 @@ processing (e.g., GIMP, Krita) is often used.
 While these are excellent pieces of software, they are needlessly powerful for
 such a simple task.
 
-There are dedicated tier list apps but they are often bloated, with social media
+While there are dedicated tier list apps, they are often bloated with social media
 features and monetisation efforts.
 
 ## Usage
 
 * Double click `index.html` and it will open in your browser
+* Give the tier list a name by editing the title of the page
 * Upload the images that you want to use
 * Drag images into tiers
 * Use <kbd>SHIFT</kbd>+<kbd>LMB</kbd> for multi-select actions
