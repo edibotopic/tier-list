@@ -461,7 +461,6 @@ h1:focus {
     background-color: var(--tier-items-bg);
 }
 
-/* ========== Zen Mode ========== */
 /* Hide UI elements in zen mode (only show tier list and toggles) */
 body.zen-mode h1,
 body.zen-mode .controls,
