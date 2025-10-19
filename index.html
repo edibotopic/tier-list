@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>TierList: Add Images</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body id="body">
-    <div id="tiers">
-      <div id="t1">
-        <textarea class="label" spellcheck="false">S</textarea>
-      </div>
-      <hr />
-      <div id="t2"><textarea class="label">A</textarea></div>
-      <hr />
-      <div id="t3"><textarea class="label">B</textarea></div>
-      <hr />
-      <div id="t4"><textarea class="label">C</textarea></div>
-      <hr />
-      <div id="t5"><textarea class="label">D</textarea></div>
-      <hr />
-      <div id="t6"><textarea class="label">E</textarea></div>
-      <hr />
-      <div id="t7"><textarea class="label">F</textarea></div>
-      <hr />
-      <br />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tier List Maker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main title (click to edit) -->
+    <h1 id="pageTitle" contenteditable="true" spellcheck="false">Tier List Maker</h1>
+
+    <!-- Top controls: tier creation and image upload -->
+    <div class="controls">
+        <input type="text" id="tierName" placeholder="Tier Name" value="S">
+        <input type="color" id="tierColor" value="#ff7f7f">
+        <button onclick="addTier()">Add Tier</button>
+        <!-- Hidden file input triggered by Upload Images button -->
+        <input type="file" id="imageUpload" accept="image/*" multiple onchange="handleImageUpload(event)">
+        <button class="upload-button" onclick="document.getElementById('imageUpload').click()">Upload Images</button>
     </div>
 
+    <!-- Container for all tier rows -->
+    <div class="tier-list" id="tierList">
+    </div>
+
+    <!-- Image bank -->
+    <div class="image-bank">
+        <h2>Image Bank</h2>
+        <!-- Container for unsorted images -->
+        <div class="image-bank-items" id="imageBank" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="dragLeave(event)">
+            <p class="drop-zone-hint" id="dropZoneHint">Drag images here or use the Upload Images button</p>
+        </div>
+    </div>
+
+    <!-- Full-screen modal for viewing images -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <button class="modal-nav modal-nav-left" id="modalPrev">‹</button>
+        <button class="modal-nav modal-nav-right" id="modalNext">›</button>
+        <div class="modal-hint">Use arrow keys to navigate</div>
+    </div>
+
+    <!-- Shift key indicator -->
+    <div class="shift-indicator" id="shiftIndicator">
+        Multi-select images
+    </div>
+
+    <!-- Toggle buttons (zen mode and theme switcher) -->
     <div class="toggle-container">
-      <button
-        class="theme-btn light"
-        onclick="setTheme('gruv')"
-        title="Default"
-      >
-        <div id="b3"></div>
-      </button>
-      <button
-        class="theme-btn minimal"
-        onclick="setTheme('light')"
-        title="Light"
-      >
-        <div id="b2"></div>
-      </button>
-      <button
-        class="theme-btn gruv"
-        onclick="setTheme('minimal')"
-        title="Gray"
-      >
-        <div id="b4"></div>
-      </button>
-      <br /><br />
-      <br /><br />
+        <button class="zen-btn" id="zenToggle" onclick="toggleZenMode()"></button>
+        <button class="theme-btn" id="themeToggle" onclick="toggleTheme()"></button>
     </div>
 
     <script src="main.js"></script>
-  </body>
+</body>
 </html>
